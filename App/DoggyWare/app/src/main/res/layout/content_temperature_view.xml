@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="iod.app.mobile.doggyware.TemperatureViewActivity"
+    tools:showIn="@layout/activity_temparature_view">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:visibility="visible"
+                card_view:cardCornerRadius="5dp"
+                card_view:cardElevation="2dp">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:id="@+id/layoutGraphView"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp">
+
+                    </RelativeLayout>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:visibility="visible"
+                card_view:cardCornerRadius="5dp"
+                card_view:cardElevation="2dp"
+                card_view:contentPadding="16dp">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="공지사항"
+                        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="2015년 3월 17일(화) 09:00부터 12:00까지 서버 점검이 예정되어 있습니다. 서버 점검 동안 로그인이 불가하오니 해당 시간 이용 예정이 있으신 분들..."
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:visibility="visible"
+                card_view:cardCornerRadius="5dp"
+                card_view:cardElevation="2dp"
+                card_view:contentPadding="16dp">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="공지사항"
+                        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="2015년 3월 17일(화) 09:00부터 12:00까지 서버 점검이 예정되어 있습니다. 서버 점검 동안 로그인이 불가하오니 해당 시간 이용 예정이 있으신 분들..."
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:visibility="visible"
+                card_view:cardCornerRadius="5dp"
+                card_view:cardElevation="2dp"
+                card_view:contentPadding="16dp">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="공지사항"
+                        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="2015년 3월 17일(화) 09:00부터 12:00까지 서버 점검이 예정되어 있습니다. 서버 점검 동안 로그인이 불가하오니 해당 시간 이용 예정이 있으신 분들..."
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+
+            <android.support.v7.widget.CardView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:visibility="visible"
+                card_view:cardCornerRadius="5dp"
+                card_view:cardElevation="2dp"
+                card_view:contentPadding="16dp">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="공지사항"
+                        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="2015년 3월 17일(화) 09:00부터 12:00까지 서버 점검이 예정되어 있습니다. 서버 점검 동안 로그인이 불가하오니 해당 시간 이용 예정이 있으신 분들..."
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:visibility="visible"
+                card_view:cardCornerRadius="5dp"
+                card_view:cardElevation="2dp"
+                card_view:contentPadding="16dp">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="공지사항"
+                        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="2015년 3월 17일(화) 09:00부터 12:00까지 서버 점검이 예정되어 있습니다. 서버 점검 동안 로그인이 불가하오니 해당 시간 이용 예정이 있으신 분들..."
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:visibility="visible"
+                card_view:cardCornerRadius="5dp"
+                card_view:cardElevation="2dp"
+                card_view:contentPadding="16dp">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="공지사항"
+                        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="2015년 3월 17일(화) 09:00부터 12:00까지 서버 점검이 예정되어 있습니다. 서버 점검 동안 로그인이 불가하오니 해당 시간 이용 예정이 있으신 분들..."
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:visibility="visible"
+                card_view:cardCornerRadius="5dp"
+                card_view:cardElevation="2dp"
+                card_view:contentPadding="16dp">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="공지사항"
+                        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="2015년 3월 17일(화) 09:00부터 12:00까지 서버 점검이 예정되어 있습니다. 서버 점검 동안 로그인이 불가하오니 해당 시간 이용 예정이 있으신 분들..."
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:visibility="visible"
+                card_view:cardCornerRadius="5dp"
+                card_view:cardElevation="2dp"
+                card_view:contentPadding="16dp">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="공지사항"
+                        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="2015년 3월 17일(화) 09:00부터 12:00까지 서버 점검이 예정되어 있습니다. 서버 점검 동안 로그인이 불가하오니 해당 시간 이용 예정이 있으신 분들..."
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:visibility="visible"
+                card_view:cardCornerRadius="5dp"
+                card_view:cardElevation="2dp"
+                card_view:contentPadding="16dp">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="공지사항"
+                        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="2015년 3월 17일(화) 09:00부터 12:00까지 서버 점검이 예정되어 있습니다. 서버 점검 동안 로그인이 불가하오니 해당 시간 이용 예정이 있으신 분들..."
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:visibility="visible"
+                card_view:cardCornerRadius="5dp"
+                card_view:cardElevation="2dp"
+                card_view:contentPadding="16dp">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="공지사항"
+                        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="2015년 3월 17일(화) 09:00부터 12:00까지 서버 점검이 예정되어 있습니다. 서버 점검 동안 로그인이 불가하오니 해당 시간 이용 예정이 있으신 분들..."
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+</RelativeLayout>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="DoggyWare 기능">
+        <menu>
+            <item
+                android:id="@+id/nav_camera"
+                android:icon="@android:drawable/ic_menu_camera"
+                android:title="집 카메라" />
+            <item
+                android:id="@+id/nav_status"
+                android:icon="@android:drawable/ic_menu_mylocation"
+                android:title="현재 상태" />
+            <item
+                android:id="@+id/nav_feeding"
+                android:icon="@android:drawable/ic_menu_send"
+                android:title="사료 주기" />
+            <item
+                android:id="@+id/nav_temp"
+                android:icon="@android:drawable/ic_menu_rotate"
+                android:title="온도 관리" />
+            <item
+                android:id="@+id/nav_calendar"
+                android:icon="@android:drawable/ic_menu_today"
+                android:title="펫 캘린더" />
+        </menu>
+    </item>
+
+    <item android:title="기타 기능">
+        <menu>
+            <item
+                android:id="@+id/nav_settings"
+                android:icon="@android:drawable/ic_menu_preferences"
+                android:title="설정" />
+            <item
+                android:id="@+id/nav_info"
+                android:icon="@android:drawable/ic_menu_info_details"
+                android:title="어플리케이션 정보" />
+        </menu>
+    </item>
+</menu>
