@@ -1,5 +1,6 @@
 package iod.app.mobile.doggyware;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -13,19 +14,45 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
-import org.apache.http.*;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.ResponseHandler;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.BasicResponseHandler;
+import org.apache.http.impl.client.DefaultHttpClient;
+
+import java.io.IOException;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+
+import iod.app.mobile.model.ModuleBean;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    
+    ProgressDialog dialog;
+    HttpClient httpClient;
+    HttpGet httpGet;
+
+    TextView tModuleStatus;
+
+    private String moduleStatusText = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("");
         setSupportActionBar(toolbar);
+
+        tModuleStatus = (TextView) findViewById(R.id.statusView);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -44,6 +71,19 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        dialog = ProgressDialog.show(MainActivity.this, "서버와 통신중", "모듈 상태 확인 중...", true);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                // TODO implements getModuleStatus Thread.
+                try {
+                    getModuleStatus();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
     }
 
     @Override
@@ -100,5 +140,34 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void getModuleStatus() throws IOException {
+        httpClient = new DefaultHttpClient();
+        String url = "http://201310491.iptime.org:6974/iodsc/iodcontrol?action=getModuleStatus";
+        httpGet = new HttpGet(url);
+        ResponseHandler<String> responseHandler = new BasicResponseHandler();
+        final String response = httpClient.execute(httpGet, responseHandler);
+
+        Gson gson = new Gson();
+        Type collectionType = new TypeToken<ArrayList<ModuleBean>>(){}.getType();
+        ArrayList<ModuleBean> moduleBeans = gson.fromJson(response, collectionType);
+
+        for(int i=0;i<moduleBeans.size();i++){
+            ModuleBean moduleBean = moduleBeans.get(i);
+            if(i==moduleBeans.size()-1) {
+                moduleStatusText += moduleBean.getModuleName() + " : " + moduleBean.getModuleStatus();
+            } else {
+                moduleStatusText += moduleBean.getModuleName() + " : " + moduleBean.getModuleStatus() + "\n";
+            }
+        }
+
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                dialog.dismiss();
+                tModuleStatus.setText(moduleStatusText);
+            }
+        });
     }
 }
