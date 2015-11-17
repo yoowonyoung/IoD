@@ -45,12 +45,17 @@
                         android:text="모듈 상태"
                         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:id="@+id/statusView"
-                        android:textAppearance="?android:attr/textAppearanceSmall" />
+                    <ListView
+                        android:id="@+id/module_list"
+                        android:layout_marginTop="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:layout_gravity="start"
+                        android:background="@android:color/transparent"
+                        android:choiceMode="singleChoice"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0dp"
+                        android:drawSelectorOnTop="false"></ListView>
                 </LinearLayout>
             </android.support.v7.widget.CardView>
 
