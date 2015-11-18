@@ -84,6 +84,7 @@ bool espSendCommand(String cmd, String goodResponse, unsigned long timeout) {
       }
     }
     tnow = millis();
+    // asdasdasdasdasdasdasd
   }
 }
 
