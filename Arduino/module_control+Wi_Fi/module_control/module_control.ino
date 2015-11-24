@@ -1,8 +1,9 @@
 #include <SoftwareSerial.h>
 
 SoftwareSerial softSerial(2, 3); // RX, TX
-String WSSID = "LEE JEONG HYU";
-String WPASS = "9220230s*";
+String WSSID = "raspie";
+String WPASS = "11111111";
+String res = "";
 bool r;
 int relay1 = 4;
 int relay2 = 5;
@@ -25,23 +26,30 @@ void setup() {
 }
 
 void loop() {
-  digitalWrite(relay2, HIGH);
-  digitalWrite(relay1, HIGH);
   r = espSendCommand( "AT+CIPSTART=\"TCP\",\"wy.iptime.org\",8099" , "OK" , 5000 );
   String getRequest = "GET /Test/Test HTTP/1.0\r\n";
   int getRequestLength = getRequest.length() + 2;
   r = espSendCommand( "AT+CIPSEND=" + String(getRequestLength) , "OK" , 5000 );
-  if(espSendCommand( getRequest , "ON" , 20000 )){
-     Serial.println("WTF");
-     digitalWrite(relay1, HIGH); // 릴레이를 작동
-    
-     delay(1000); // 2초 대기
-     digitalWrite(relay1, LOW); // 없을 경우 릴레이를 끔
-     
+  if(espSendCommand( getRequest , "HEATON" , 5000 )){
+     Serial.println("HEATON");
+     digitalWrite(relay2, LOW); // 릴레이 키기
   }else {
-     digitalWrite(relay2, HIGH); // 릴레이를 작동
-     delay(1000); // 2초 대기
-     digitalWrite(relay2, LOW); // 없을 경우 릴레이를 끔 
+    int resLen = res.length();
+    String testFanON = res.substring(resLen - 14, resLen - 8);
+    String testFanOFF = res.substring(resLen - 15, resLen - 8);
+    String testHeatOFF = res.substring(resLen - 16, resLen - 8);
+    int isFanON = testFanON.equals("FANON\n");
+    int isFanOFF = testFanOFF.equals("FANOFF\n");
+    int isHeatOFF = testHeatOFF.equals("HEATOFF\n");
+    if(isFanON == 1) {
+      Serial.println("FANON");
+      digitalWrite(relay1, LOW); // 릴레이 킴
+    }else if(isFanOFF == 1) {
+      digitalWrite(relay1, HIGH); // 릴레이 끔
+    }else if(isHeatOFF == 1) {
+      digitalWrite(relay2, HIGH); // 릴레이 끔
+    }
+    res = "";
   }
   if ( !r ) {
     Serial.println( "Something wrong...Attempting reset...");
@@ -75,6 +83,7 @@ bool espSendCommand(String cmd, String goodResponse, unsigned long timeout) {
       if ( response.length() > 0 ) {
         Serial.println("espSendCommand: RESPONSE:");
         Serial.println( response );
+        res = response;
       } else {
         Serial.println("espSendCommand: NO RESPONSE");
       }
