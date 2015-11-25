@@ -5,6 +5,7 @@
 SoftwareSerial softSerial(2, 3); // RX, TX
 String WSSID = "iptime";
 String WPASS = "11111111";
+String res = "";
 bool r;
  
 void setup() {
@@ -25,13 +26,23 @@ void loop() {
   String getRequest = "GET /phpinfo.php?test=OFF HTTP/1.0\r\n";
   int getRequestLength = getRequest.length() + 2;
   r = espSendCommand( "AT+CIPSEND=" + String(getRequestLength) , "OK" , 5000 );
-  if(espSendCommand( getRequest , "ON" , 20000 )){
+  if(espSendCommand( getRequest , "ON" , 5000 )){
      //Serial.print("FUCK I FIND!");
      analogWrite(8,255);
      //digitalWrite(8, HIGH);
      delay(10000);
      analogWrite(8,0);
      //digitalWrite(8, LOW);  
+  }else {
+    int resLen = res.length();
+    String testRefill = res.substring(reslen -15, resLen - 8);
+    int isRefill = res.equals("REFILL\n");
+    if(isRefill == 1) {
+       Serial.println("REFILL");
+       analogWrite(8,255);
+       delay(60000);
+       analogWrite(8,0);
+    }
   }
   if ( !r ) {
     Serial.println( "Something wrong...Attempting reset...");
@@ -77,6 +88,7 @@ bool espSendCommand(String cmd, String goodResponse, unsigned long timeout) {
         Serial.println("espSendCommand: SUCCESS - Response time: " + String(execTime) + "ms");
         Serial.println("espSendCommand: RESPONSE:");
         Serial.println(response);
+        res = response;
         while (softSerial.available() > 0) {
           Serial.write(softSerial.read());
         }
