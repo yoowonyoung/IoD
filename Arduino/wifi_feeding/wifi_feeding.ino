@@ -1,10 +1,10 @@
 #include <SoftwareSerial.h>
 
-int motorPin = 3;
+int motorPin = 8;
 
 SoftwareSerial softSerial(2, 3); // RX, TX
-String WSSID = "LEE JEONG HYU";
-String WPASS = "9220230s*";
+String WSSID = "SOGYOSU";
+String WPASS = "9220230s";
 bool r;
 
 void setup() {
@@ -26,17 +26,17 @@ void loop() {
   delay(10000);
 
   r = espSendCommand( "AT+CIPSTART=\"TCP\",\"201310491.iptime.org\",6974" , "OK" , 5000 );
-  String getRequest = "GET /iodsc/iodcontrol?action=getControl";
+  String getRequest = "GET /iodsc/iodcontrol?action=getControl&moduleName=FEED";
   int getRequestLength = getRequest.length() + 2;
   r = espSendCommand( "AT+CIPSEND=" + String(getRequestLength) , "OK" , 5000 );
-  if(espSendCommand( getRequest , "SUCCESS" , 15000 )){
+  if(espSendCommand( getRequest , "ONCE" , 15000 )){
       analogWrite(motorPin, 255);
       delay(15000);
       analogWrite(motorPin, 0);
   }
   if ( !r ) {
     Serial.println( "Something wrong...Attempting reset...");
-    espSendCommand( "AT+RST" , "ready" , 20000);
+    //espSendCommand( "AT+RST" , "ready" , 20000);
     espSendCommand( "AT+CWMODE=1" , "OK" , 5000 );
     espSendCommand( "AT+CWJAP=\"" + WSSID + "\",\"" + WPASS + "\"" , "OK" , 15000 );
   }

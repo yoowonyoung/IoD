@@ -1,8 +1,8 @@
 #include <SoftwareSerial.h>
 
 SoftwareSerial softSerial(2, 3); // RX, TX
-String WSSID = "raspie";
-String WPASS = "11111111";
+String WSSID = "SOGYOSU";
+String WPASS = "9220230s";
 String res = "";
 bool r;
 int relay1 = 4;
@@ -26,11 +26,11 @@ void setup() {
 }
 
 void loop() {
-  r = espSendCommand( "AT+CIPSTART=\"TCP\",\"wy.iptime.org\",8099" , "OK" , 5000 );
-  String getRequest = "GET /Test/Test HTTP/1.0\r\n";
+  r = espSendCommand( "AT+CIPSTART=\"TCP\",\"201310491.iptime.org\",6974" , "OK" , 5000 );
+  String getRequest = "GET /iodsc/iodcontrol?action=getControl&moduleName=ENVN";
   int getRequestLength = getRequest.length() + 2;
   r = espSendCommand( "AT+CIPSEND=" + String(getRequestLength) , "OK" , 5000 );
-  if(espSendCommand( getRequest , "HEATON" , 5000 )){
+  if(espSendCommand( getRequest , "HEATON" , 3000 )){
      Serial.println("HEATON");
      digitalWrite(relay2, LOW); // 릴레이 키기
   }else {
@@ -38,15 +38,20 @@ void loop() {
     String testFanON = res.substring(resLen - 14, resLen - 8);
     String testFanOFF = res.substring(resLen - 15, resLen - 8);
     String testHeatOFF = res.substring(resLen - 16, resLen - 8);
+    String testAllOFF = res.substring(resLen - 15, resLen -8);
     int isFanON = testFanON.equals("FANON\n");
     int isFanOFF = testFanOFF.equals("FANOFF\n");
     int isHeatOFF = testHeatOFF.equals("HEATOFF\n");
+    int isAllOFF = testHeatOFF.equals("ALLOFF\n");
     if(isFanON == 1) {
       Serial.println("FANON");
       digitalWrite(relay1, LOW); // 릴레이 킴
     }else if(isFanOFF == 1) {
       digitalWrite(relay1, HIGH); // 릴레이 끔
     }else if(isHeatOFF == 1) {
+      digitalWrite(relay2, HIGH); // 릴레이 끔
+    }else if(isAllOFF == 1) {
+      digitalWrite(relay1, HIGH); // 릴레이 끔
       digitalWrite(relay2, HIGH); // 릴레이 끔
     }
     res = "";
@@ -59,7 +64,6 @@ void loop() {
   }
   delay(3000);
 }
-
 void espSerialSetup() {
   softSerial.begin(115200); // default baud rate for ESP8266
   delay(1000);

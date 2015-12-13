@@ -4,9 +4,5 @@
     android:layout_height="match_parent"
     tools:context="iod.app.mobile.doggyware.StreamingViewActivity">
 
-    <VideoView
-        android:id="@+id/videoview"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
-    </VideoView>
+
 </RelativeLayout>
