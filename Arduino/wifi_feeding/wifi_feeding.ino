@@ -29,7 +29,7 @@ void loop() {
   String getRequest = "GET /iodsc/iodcontrol?action=getControl&moduleName=FEED";
   int getRequestLength = getRequest.length() + 2;
   r = espSendCommand( "AT+CIPSEND=" + String(getRequestLength) , "OK" , 5000 );
-  if(espSendCommand( getRequest , "ONCE" , 15000 )){
+  if(espSendCommand( getRequest , "ONCE" , 3000 )){
       analogWrite(motorPin, 255);
       delay(15000);
       analogWrite(motorPin, 0);
