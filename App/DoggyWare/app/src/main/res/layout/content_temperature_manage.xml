@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="iod.app.mobile.doggyware.TemperatureManageActivity"
+    tools:showIn="@layout/activity_temperature_view">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:visibility="visible"
+                app:cardBackgroundColor="#FFFFFF"
+                card_view:cardCornerRadius="5dp"
+                card_view:cardElevation="2dp">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="16dp"
+                        android:text="온도 추이"
+                        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                    <RelativeLayout
+                        android:id="@+id/layoutGraphView"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp">
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/tempMonitor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="16dp"
+                        android:text="현재 온도 : 27.8℃"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:visibility="visible"
+                app:cardBackgroundColor="#FFFFFF"
+                card_view:cardCornerRadius="5dp"
+                card_view:cardElevation="2dp">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="16dp"
+                        android:text="온도 제어"
+                        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                    <com.beardedhen.androidbootstrap.BootstrapButton
+                        android:id="@+id/button_fan"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginTop="10dp"
+                        app:bootstrapBrand="primary"
+                        app:bootstrapSize="lg"
+                        app:bootstrapText="{fa_asterisk}  선풍기 켜기"
+                        app:buttonMode="regular"
+                        app:roundedCorners="true"
+                        app:showOutline="false" />
+
+                    <com.beardedhen.androidbootstrap.BootstrapButton
+                        android:id="@+id/button_mat"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginBottom="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginTop="10dp"
+                        app:bootstrapBrand="warning"
+                        app:bootstrapSize="lg"
+                        app:bootstrapText="{fa_hotel}  매트 켜기"
+                        app:buttonMode="regular"
+                        app:roundedCorners="true"
+                        app:showOutline="false" />
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:visibility="visible"
+                app:cardBackgroundColor="#FFFFFF"
+                card_view:cardCornerRadius="5dp"
+                card_view:cardElevation="2dp">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="16dp"
+                        android:text="자동 제어 설정"
+                        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                    <com.beardedhen.androidbootstrap.BootstrapButton
+                        android:id="@+id/button_toggle_auto"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginTop="10dp"
+                        app:bootstrapBrand="danger"
+                        app:bootstrapSize="lg"
+                        app:bootstrapText="{fa_bolt}  자동 제어 켜기"
+                        app:buttonMode="regular"
+                        app:roundedCorners="true"
+                        app:showOutline="false" />
+
+                    <com.beardedhen.androidbootstrap.BootstrapButton
+                        android:id="@+id/button_auto_setting"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginBottom="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginTop="10dp"
+                        app:bootstrapBrand="success"
+                        app:bootstrapSize="lg"
+                        app:bootstrapText="{fa_sliders}  자동 제어 설정"
+                        app:buttonMode="regular"
+                        app:roundedCorners="true"
+                        app:showOutline="false" />
+
+                    <TextView
+                        android:id="@+id/setted_auto_temp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="16dp"
+                        android:text="현재 설정 : 30℃"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+
+            <TextView
+                android:id="@+id/textFoot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="10sp"
+                tools:ignore="SmallSp" />
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</RelativeLayout>

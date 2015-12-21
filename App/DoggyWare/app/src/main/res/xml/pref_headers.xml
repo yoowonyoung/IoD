@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="짖음 알림 설정">
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="barkNotifyEnable"
+            android:summary="반려견이 짖을 때 알립니다."
+            android:switchTextOff="끄기"
+            android:switchTextOn="켜기"
+            android:title="짖음 알림"/>
+
+        <Preference
+            android:summary="반려견이 짖을 때 재생될 음성을 녹음합니다."
+            android:title="사용자 음성 녹음"
+            android:key="voiceRecord">
+        </Preference>
+
+        <Preference
+            android:summary="녹음된 음성을 서버/컨트롤러로 전송합니다."
+            android:title="녹음된 음성 전송"
+            android:key="voiceTransfer">
+        </Preference>
+    </PreferenceCategory>
+</PreferenceScreen>
